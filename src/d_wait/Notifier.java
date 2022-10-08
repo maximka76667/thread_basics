@@ -10,18 +10,20 @@ public class Notifier implements Runnable {
 
 	@Override
 	public void run() {
-		String name = Thread.currentThread().getName();
-		System.out.println(name + " started");
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		synchronized (msg) {
-			msg.setMsg("Show this message! P.S. " + name);
-			msg.notify();
-//			msg.notifyAll(); // If uncomment this line and comment previous all waiter will get notified at
-			// the same moment
+		for (int i = 0; i < 2; i++) {
+			String name = Thread.currentThread().getName();
+			System.out.println(name + " started");
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			synchronized (msg) {
+				msg.setMsg("Show this message! P.S. " + name);
+				msg.notify();
+//				msg.notifyAll(); // If uncomment this line and comment previous all waiter will get notified at
+				// the same moment
+			}
 		}
 	}
 
