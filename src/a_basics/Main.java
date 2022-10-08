@@ -1,4 +1,4 @@
-package thread_basics;
+package a_basics;
 
 public class Main {
 

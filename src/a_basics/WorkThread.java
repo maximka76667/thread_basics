@@ -1,6 +1,9 @@
-package thread_basics;
+package a_basics;
 
-public class WorkRunnable implements Runnable {
+public class WorkThread extends Thread {
+	public WorkThread(String name) {
+		super(name);
+	}
 
 	@Override
 	public void run() {
@@ -17,5 +20,4 @@ public class WorkRunnable implements Runnable {
 	public void process() throws InterruptedException {
 		Thread.sleep(5000);
 	}
-
 }
